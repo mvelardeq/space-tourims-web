@@ -11,7 +11,9 @@ export const TechnologyPage = () => {
         />
         <main>
           <p className="titleAction"><span>03</span>Space Launch 101</p>
-          <TechnologySection />
+          <div className="containterTech">
+            <TechnologySection />
+          </div>
         </main>
     </>
   )

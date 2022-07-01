@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export const NavBar = () => {
 
@@ -15,7 +15,7 @@ export const NavBar = () => {
   const onCloseMenu = ()=>{
     setMobileMenuActive(false)
   }
-
+  
   return (
     <>
         <nav className='nav'>
@@ -23,10 +23,34 @@ export const NavBar = () => {
             <img src="./assets/shared/logo.svg" alt="" />
           </picture>
           <div className={`navList ${mobileMenuActive ? 'menuShow' : ''}`}>
-            <Link to="/" onClick={onCloseMenu}>Home</Link>
-            <Link to="/destination" onClick={onCloseMenu}>Destination</Link>
-            <Link to="/crew" onClick={onCloseMenu}>Crew</Link>
-            <Link to="/technology" onClick={onCloseMenu}>Technology</Link>
+            <NavLink 
+              to="/" 
+              onClick={onCloseMenu}
+              className={({isActive}) => ((isActive) ? "activeLink" : "")}
+            >
+                <span>00</span> Home
+            </NavLink>
+            <NavLink 
+              to="/destination"
+              onClick={onCloseMenu}
+              className={({isActive}) => ((isActive) ? "activeLink" : "")}
+            >
+                <span>01</span> Destination
+            </NavLink>
+            <NavLink 
+              to="/crew" 
+              onClick={onCloseMenu}
+              className={({isActive}) => ((isActive) ? "activeLink" : "")}
+            >
+                <span>02</span> Crew
+            </NavLink>
+            <NavLink 
+              to="/technology"
+              onClick={onCloseMenu}
+              className={({isActive}) => ((isActive) ? "activeLink" : "")}
+            >
+                <span>03</span> Technology
+            </NavLink>
           </div>
           <img onClick={onShowMenu} className={`icon-hamburger ${mobileMenuActive ? 'd-none' : ''}`} src="./assets/shared/icon-hamburger.svg" alt="" />
           <img onClick={onCloseMenu} className={`icon-close ${mobileMenuActive ? '' : 'd-none'}`}  src="./assets/shared/icon-close.svg" alt="" />

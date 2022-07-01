@@ -11,7 +11,9 @@ export const CrewPage = () => {
         />
         <main className="crewMain">
           <p className="titleAction"><span>02</span> Meet your crew</p>
-          <CrewSection />
+          <div className="containerCrewContent">
+            <CrewSection />
+          </div>
         </main>
     </>
   )

@@ -17,12 +17,10 @@ export const TechnologySection = () => {
     <>
         {
             technologyItem.map((el)=>(
-                <div key={el.name}>
-                    <picture className="imageTech">
-                        {/* <source srcSet={el.images.portrait} /> */}
+                    <picture key={el.name} className="imageTech">
+                        <source media="(min-width:1000px)" srcSet={el.images.portrait} />
                         <img src={el.images.landscape} alt="" />
                     </picture>
-                </div>
             ))
         }
         <div className="bellowTechSection">

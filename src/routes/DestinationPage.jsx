@@ -12,7 +12,7 @@ const DestinationPage = () => {
           imgTablet="./assets/destination/background-destination-tablet.jpg"
           imgDesktop="./assets/destination/background-destination-desktop.jpg"
         />
-        <main>
+        <main className="destinationsMain">
             <p className="titleAction"><span>01</span> Pick your destination</p>
           <div className="containerContentDestination">
             <DestinationSection />

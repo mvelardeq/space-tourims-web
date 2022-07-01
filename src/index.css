@@ -19,7 +19,8 @@ html{
   /* border: 1px solid red; */
 }
 body {
-  min-height: max(100vh,560px);
+  /* min-height: max(100vh,667 px); */
+  min-height: 100vh;
   position: relative;
 }
 a{
@@ -56,6 +57,14 @@ img{
 .nav>.navList{
   display: none;
 }
+.nav>.navList>a{
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.nav>.navList>a>span{
+  font-weight: 700;
+  margin-right: 11px;
+}
 .nav>.navList.menuShow{
   width: 254px;
   position: absolute;
@@ -71,6 +80,7 @@ img{
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(37.5485px);
 }
+
 img.icon-hamburger{
   width: 24px;
   height: 21px;
@@ -110,6 +120,20 @@ img.icon-close{
     letter-spacing: 2.36px;
     text-transform: uppercase;
   }
+  .nav>.navList>.activeLink{
+    position: relative;
+  }
+  .nav>.navList>.activeLink::after{
+    content: '';
+    position: absolute;
+    bottom: -38px;
+    left: 0;
+    width: 100%;
+    border-bottom: 3px solid var(--white);
+  }
+  .nav>.navList>a>span{
+    display: none;
+  }
   img.icon-hamburger{
     display: none;
   }
@@ -120,7 +144,10 @@ img.icon-close{
 
 @media (min-width:1000px){
   .nav{
-    padding: 0 0 0 55px;
+    padding: 40px 0 0 55px;
+  }
+  .nav>.navList>a>span{
+    display: inline-block;
   }
   .nav>.navList{
     padding: 39px 165px 38px 123px;
@@ -135,10 +162,15 @@ img.icon-close{
 /* *******************************
 ***********HOME PAGE***********
 ******************************* */
+
+.homeMain{
+    padding: 24px 0 48PX;
+}
+
 .home-description{
   width: 87.3%;
   height: 276px;
-  margin: 24px auto;
+  margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -172,7 +204,7 @@ img.icon-close{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 81px auto 48px;
+  margin: 81px auto 0;
   text-transform: uppercase;
   text-decoration: none;
   font-family: var(--ff-bellefair);
@@ -182,10 +214,13 @@ img.icon-close{
 }
 
 @media (min-width:600px){
+  .homeMain{
+    padding: 106px 0 0.1px;
+  }
   .home-description{
     width: 444px;
     height: 334px;
-    margin: 106px auto;
+    /* margin: 106px auto; */
     justify-content: flex-start;
   }
   .title-introduction{
@@ -215,12 +250,13 @@ img.icon-close{
 
 @media (min-width:1000px) {
   .homeMain{
-    display: flex;
     width: min(1100px,90vw);
-    margin: 251px auto 0;
+    height: min(90vh,764px);
+    padding: 251px 0 131px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 0 auto;
   }
   .home-description{
     width: 444px;
@@ -284,7 +320,7 @@ img.icon-close{
     font-size: 28px;
     line-height: 34px;
     letter-spacing: 4.72px;
-    margin: 76px 220.5px 64px;
+    margin: 76px 166.5px 64px;
   }
   .titleAction>span{
     opacity: 0.25;
@@ -418,10 +454,12 @@ picture.imageDestinations{
   }
 }
 @media (min-width:1000px){
+  .destinationsMain{
+    padding-bottom: 118px;
+  }
   .containerContentDestination{
     display: flex;
     width: min(1114px,90vw);
-    /* width: 1114px; */
     margin: 0 auto;
   }
   picture.imageDestinations{
@@ -547,7 +585,11 @@ picture.imageCrew,picture.imageCrew>img{
     display: flex;
     flex-direction: column;
   }
-  .crewMain>.containerImageCrew{
+  .containerCrewContent{
+    display: flex;
+    flex-direction: column;
+  }
+  .crewMain .containerImageCrew{
     order: 2;
   }
   picture.imageCrew,picture.imageCrew>img{
@@ -590,41 +632,53 @@ picture.imageCrew,picture.imageCrew>img{
     display: flex;
     flex-direction: column;
   }
-  .crewMain>.containerImageCrew{
-    order: 2;
+  .containerCrewContent{
+    display: flex;
+    flex-direction: row;
   }
-  picture.imageCrew,picture.imageCrew>img{
-    height: 532px;
-    margin: 40px auto 0;
+  picture.imageCrew{
+    /* height: min(50vw,712px); */
+    height: 712px;
+    margin: 0;
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    right: 137px;
   }
-  .lineImageCrew{
-    display: none;
+  picture.imageCrew>img{
+    height: 100%;
+    margin: 0;
   }
   .bellowCrewSection{
-    max-width: 458px;
-    margin: 0 auto;
-    gap: 40px;
-    /* padding-bottom: 79px; */
+    max-width: 614px;
+    margin: 10vh 0 0 165.5px;
+    height: 500px;
+    justify-content: space-between;
+    text-align: start;
+    padding-bottom: 94px;
   }
   .listCrew{
-    width: 88px;
-    margin: 0 auto;
+    width: 132px;
+    margin: 0;
     order: 2;
   }
   .listCrew>span.active{
     opacity: 1;
   }
   .rolCrew{
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 15px;
   }
   .titleNameCrew{
-    font-size: 40px;
-    line-height: 46px;
+    font-size: 56px;
+    line-height: 64px;
+    margin-bottom: 27px;
   }
   .bioCrew{
-    font-size: 16px;
-    line-height: 28px;
+    max-width: 444px;
+    font-size: 18px;
+    line-height: 32px;
     letter-spacing: 1.2px;
   }
 }
@@ -736,6 +790,61 @@ picture.imageTech>img{
 }
 
 
+@media (min-width:1000px){
+  .containterTech{
+    display: flex;
+    margin-left: 165px;
+    align-items: center;
+    padding-bottom: 101px;
+  }
+  picture.imageTech{
+    margin-top: -37px;
+    margin-left: auto;
+    order: 2;
+  }
+  picture.imageTech>img{
+    height: min(527px, 37%);
+  }
+  .bellowTechSection{
+    height: 303px;
+    max-width: 630px;
+    margin: 0;
+    flex-direction: row;
+    gap: 80px;
+    padding-bottom: 0;
+  }
+  .listTech{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .listTech>span{
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    line-height: 36.7px;
+  }
+  .infoTech{
+    height: 303px;
+    width: 470px;
+    text-align: start;
+  }
+  .previewTitle{
+    margin-bottom: 11px;
+  }
+  .titleTech{
+    font-size: 56px;
+    line-height: 64px;
+    margin-bottom: 17px;
+  }
+  .descriptionTech{
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    max-width: 444px;
+  }
+  
+}
 
 .d-none{
   display: none;
